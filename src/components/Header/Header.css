@@ -2,3 +2,9 @@
   color: red;
   font-size: 12px;
 }
+.nav-name {
+  font-family: "Bonheur Royale", cursive;
+  font-size: 2rem;
+  color: rgb(35, 67, 136);
+  text-decoration: none;
+}

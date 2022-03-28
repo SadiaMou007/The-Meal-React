@@ -6,18 +6,18 @@ import { FcLike } from "react-icons/fc";
 const Header = () => {
   return (
     <div>
-      <nav class="navbar navbar-light bg-light navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand text-warning fw-bold" href="./home">
+      <nav className="navbar bg-light navbar-expand-lg">
+        <div className="container-fluid">
+          <a className=" fw-bold nav-name" href="./home">
             The Meal
           </a>
 
-          <div class="me-2">
-            <span type="button" class=" position-relative fs-5 me-3">
+          <div className="me-2">
+            <span type="button" className=" position-relative fs-5 me-3">
               <FaShoppingCart />
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill p-1 b-main">
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill p-1 b-main">
                 <small className="b-counter">0</small>
-                <span class="visually-hidden">unread messages</span>
+                <span className="visually-hidden">unread messages</span>
               </span>
             </span>
 
