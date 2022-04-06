@@ -1,31 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
-import { FaUserAlt } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
-import { FcLike } from "react-icons/fc";
+
 const Header = () => {
   return (
-    <div>
-      <nav className="navbar bg-light navbar-expand-lg">
-        <div className="container-fluid">
-          <a className=" fw-bold nav-name" href="./home">
-            The Meal
-          </a>
-
-          <div className="me-2">
-            <span type="button" className=" position-relative fs-5 me-3">
-              <FaShoppingCart />
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill p-1 b-main">
-                <small className="b-counter">0</small>
-                <span className="visually-hidden">unread messages</span>
-              </span>
-            </span>
-
-            <FcLike className="me-3 fs-5" />
-            <FaUserAlt className="me-3 fs-5" />
-          </div>
-        </div>
-      </nav>
+    <div className="flex text-xl justify-around border-b-2 items-center">
+      <h4 className="p-2">The Meal</h4>
+      <div>
+        <Link to={"/shop"} className="r text-green-600 font-serif font-bold">
+          Home
+        </Link>
+      </div>
     </div>
   );
 };

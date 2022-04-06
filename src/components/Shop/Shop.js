@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
+import useCategory from "../../Hooks/setCategory";
 import Products from "../Products/Products";
-import Cart from "../Cart/Cart";
 import "./Shop.css";
 const Shop = () => {
-  const [category, setCategory] = useState([]);
-  const [cart, setCart] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
-      .then((res) => res.json())
-      .then((data) => setCategory(data.categories));
-  }, []);
-  console.log(category);
+  const [category] = useCategory();
+  const [s, setS] = useState(category);
+  const handleSearch = (e) => {
+    const v = e.target.value;
+    const result = category.filter((c) =>
+      c.strCategory.toLowerCase().includes(v)
+    );
+    setS(result);
+  };
   return (
-    <div className="row ms-4">
-      <div className=" p-2 col-lg-7">
-        <h3 className=" text-center">Available Category</h3>
-        <div className="row g-4">
-          {category.map((product, index) => {
-            return <Products key={index} product={product} />;
-          })}
-        </div>
+    <div>
+      <div className="p-2 text-center">
+        <input
+          className="border-2"
+          type="text"
+          placeholder="search category"
+          onChange={handleSearch}
+        />
       </div>
-      <div className=" col-lg-5">
-      <Cart/>
+      <div className=" p-2 grid grid-cols-3 gap-7">
+        {s.map((item) => (
+          <Products product={item} key={item.idCategory}></Products>
+        ))}
       </div>
     </div>
   );
